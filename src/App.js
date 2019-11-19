@@ -10,16 +10,12 @@ const App = () => {
 
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState('');
-  const [query, setQuery] = useState('chicken');
-  // const exampleReq = `https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}`;
-
-  // const [counter, setCounter] = useState(0);
+  const [query, setQuery] = useState('banana');
+ 
   useEffect( () => {
-    // console.log("effect has been run!");
     getRecepices([search]);
 
   }, [query]); 
-
 
   const getRecepices = async () => {
     const response = await fetch(`https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`);
@@ -27,7 +23,6 @@ const App = () => {
     console.log(data.hits);
     setRecipes(data.hits);
   }
-
 
   const updateSearch = e => {
     setSearch(e.target.value);
@@ -56,7 +51,6 @@ const App = () => {
         ))}
       </div>
 
-      {/* <h1 onClick={() => setCounter(counter+1)}>{counter}</h1> */}
     </div>
 
 
